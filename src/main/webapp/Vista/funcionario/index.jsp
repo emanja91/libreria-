@@ -22,5 +22,6 @@
     </head>
     <body>
          Bienvenido, Funcionario: <%= usuarioLogueado.getNombre() %>
+          <a  href="<%= request.getContextPath() %>/LogoutServlet">Cerrar Sesión</a>
     </body>
 </html>

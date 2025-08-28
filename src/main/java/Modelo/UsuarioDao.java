@@ -49,12 +49,13 @@ public class UsuarioDao {
 
         try {
             Connection conn = ConexionDao.ObtenerConexion();
-            String sql = "INSERT INTO usuarios(nombre,usuario,correo,clave) values (?,?,?,?)";
+            String sql = "INSERT INTO usuarios(nombre,usuario,correo,clave,rol) values (?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, user.getNombre());
             pstmt.setString(2, user.getUsuario());
             pstmt.setString(3,user.getCorreo());
             pstmt.setString(4,user.getClave());
+            pstmt.setInt(5, user.getRol());
             result = pstmt.executeUpdate();
         } catch (SQLException e) {
             System.err.println("Error al validar usuario: " + e.getMessage());
